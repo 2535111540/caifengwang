@@ -1,0 +1,47 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - BaiduMapKit (3.0.0)
+  - BCUserTrack (5.1.0.7):
+    - UTDID
+  - Masonry (1.0.2)
+  - MBProgressHUD (1.0.0)
+  - SVProgressHUD (2.0.3)
+  - UTDID (1.1.0.16)
+  - YWFeedbackFMWK (1.1.1.1):
+    - BCUserTrack
+
+DEPENDENCIES:
+  - AFNetworking
+  - BaiduMapKit
+  - Masonry
+  - MBProgressHUD
+  - SVProgressHUD
+  - YWFeedbackFMWK
+
+SPEC CHECKSUMS:
+  AFNetworking: 18af9c7b41a3fd4d184bc1d3a9f0f32ddb90179b
+  BaiduMapKit: f8631f58b012def63a9e54d4dd5d2813a4618378
+  BCUserTrack: 729ae7c725f6fadb7f07292a156fd5d3364d0e5c
+  Masonry: 51cb76bcc3fea78dad2c7f2ae97c6ec5c0f5c102
+  MBProgressHUD: 3a0586c59f596fc6c20a64e56c65b8207541addc
+  SVProgressHUD: 50371a8e908885e25652cf8f6e9cb1ff68510d56
+  UTDID: c28855683c5ea2e77e597cb14609328f7d470d6e
+  YWFeedbackFMWK: f9afffa0b0d959126a7b9a229dbb63745adde511
+
+PODFILE CHECKSUM: b6132c04100407ae637a1e506f13b4930c3c1cb9
+
+COCOAPODS: 1.0.1

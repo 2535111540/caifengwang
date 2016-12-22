@@ -1,0 +1,13 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '7.0'
+source 'http://repo.baichuan-ios.taobao.com/baichuanSDK/AliBCSpecs.git'
+source 'http://repo.baichuan-ios.taobao.com/baichuanSDK/AliBCSpecsMirror.git'
+
+target ‘cfw’ do
+pod 'SVProgressHUD'
+pod 'AFNetworking'
+pod 'Masonry'
+pod 'BaiduMapKit' #百度地图SDK
+pod 'MBProgressHUD'
+pod 'YWFeedbackFMWK'#阿里百川SDK 
+end
