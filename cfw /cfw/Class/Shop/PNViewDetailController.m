@@ -13,7 +13,7 @@
 #import <SVProgressHUD.h>
 #define IOS8x ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0)
 #define WebViewNav_TintColor ([UIColor orangeColor])
-#define HomeUrl1    [NSURL URLWithString:@"http://www.caifengwang.cn/"]
+#define HomeUrl1    [NSURL URLWithString:@"http://www.caifengwang.cn/mobile/wapautologin/index.php?m="]
 @interface PNViewDetailController()<WKNavigationDelegate,UIWebViewDelegate,WKUIDelegate>
 @property (nonatomic,strong) WKWebView *WKwebView;
 @property (nonatomic,strong) UIWebView *webView;
@@ -101,9 +101,11 @@
     
     self.view.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth;
     
-    //    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.tmall.com"]]];
     
-    [self.WKwebView loadRequest:[NSURLRequest requestWithURL:HomeUrl1]];
+    //  取出用户名name也就是手机号
+    NSDictionary *dic = [[NSUserDefaults standardUserDefaults]objectForKey:@"ResultAuthData"];
+    NSString *name = [dic objectForKey:@"name"];
+    [self.WKwebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.caifengwang.cn/mobile/wapautologin/index.php?m=%@",name]]]];
     
     
 //    

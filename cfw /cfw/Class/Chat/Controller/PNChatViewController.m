@@ -10,7 +10,6 @@
 #import "AKSegmentedControl.h"
 #import "JHCustomMenu.h"
 
-#import "PNFriendViewController.h"
 #import "PNMessageViewController.h"
 
 
@@ -23,7 +22,6 @@
     UITableView *_tableView;
     AKSegmentedControl *segmentedControl;
     
-    PNFriendViewController *friendVC;
     PNMessageViewController *messageVC;
     ContactListViewController *contactListVC;
     ConversationListController *conversationListVC;
@@ -176,18 +174,6 @@
 }
 #pragma mark -- lazy
 
-- (PNFriendViewController *)friendVC{
-    
-    if (!friendVC) {
-        friendVC = [[PNFriendViewController alloc]init];
-        [self addChildViewController:friendVC];
-        
-        [self.view addSubview:friendVC.view];
-
-    }
-    
-    return friendVC;
-}
 
 - (PNMessageViewController *)messageVC{
     if (!messageVC) {

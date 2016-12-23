@@ -8,14 +8,8 @@
 #import "WXDataService.h"
 #import "NetWorkingHelpper.h"
 #import "PNMapViewController.h"
-#import <BaiduMapAPI_Map/BMKMapComponent.h>//引入地图功能所有的头文件
-#import <BaiduMapAPI_Location/BMKLocationComponent.h>//引入定位功能所有的头文件
-#import <BaiduMapAPI_Radar/BMKRadarComponent.h>
-#define COLOUR(R,G,B,A) [UIColor colorWithRed:R / 255.0 green:G / 255.0 blue:B / 255.0 alpha:A]
-#define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
-#define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
-#define RECTMACK(A,B,X,Y) CGRectMake(A * SCREEN_WIDTH/414, B * SCREEN_WIDTH/414,X *SCREEN_WIDTH/414,Y *SCREEN_WIDTH/414)
-@interface PNMapViewController ()<BMKMapViewDelegate,BMKLocationServiceDelegate,BMKRadarManagerDelegate,NetWorkingHelpperDelegate>
+
+@interface PNMapViewController ()<BMKMapViewDelegate,BMKLocationServiceDelegate,BMKRadarManagerDelegate,NetWorkingHelpperDelegate,BMKGeoCodeSearchDelegate>
 {
     BMKMapView* _mapView;
     BMKLocationService* _locService;
@@ -33,8 +27,10 @@
 @property (nonatomic, retain)UILabel *weather;
 @property (nonatomic, retain)NSString *weathers;
 @property (nonatomic, retain)NSString *location;
-@property (nonatomic, copy)NSString* longitude;
-@property (nonatomic, copy)NSString* latitude;
+@property (nonatomic, assign) CGFloat longitude;  // 经度
+@property (nonatomic, assign) CGFloat latitude; // 纬度
+@property (nonatomic, strong) BMKGeoCodeSearch *geoCode;        // 地理编码
+@property (nonatomic, copy) NSString *currentCityString;  //地址详情
 @end
 
 @implementation PNMapViewController
@@ -42,6 +38,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    self.view.backgroundColor = [UIColor purpleColor];
+    
+    
+    
     
     self.citName = @"宝鸡";
     
@@ -62,14 +61,49 @@
     [self postJson];
     
     self.bigview = [[UIView alloc] initWithFrame:RECTMACK(10, 10,SCREEN_WIDTH / 4 + 5, SCREEN_WIDTH / 8 + 2)];
+    self.bigview.layer.cornerRadius = 3;
+    self.bigview.layer.masksToBounds = YES;
     self.bigview.backgroundColor = [UIColor redColor];
     [self.view addSubview: self.bigview];
     [self setWeather]; // 添加天气视图
+    
+   
+    
+
     
 //    [self getMap];
    
 }
 
+// 添加地址View
+- (void)addAddressView{
+    // 定位地址View
+    UIView *addressView = [[UIView alloc]init];
+    addressView.backgroundColor = COLOUR(255,0 ,0 , 0.5);
+    addressView.layer.cornerRadius = 3;
+    addressView.layer.masksToBounds = YES;
+    
+    [self.view addSubview:addressView];
+    [addressView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.view).offset(-20);
+        make.top.equalTo(self.view).offset(10);
+        make.size.mas_equalTo(CGSizeMake(200, 40));
+    }];
+    UILabel *label = [[UILabel alloc]init];
+   
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:13];
+    label.text = self.currentCityString;
+    label.textAlignment = NSTextAlignmentCenter;
+//    label.size = CGSizeMake(180, 40);
+    [addressView addSubview:label];
+    
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(addressView);
+        make.centerX.equalTo(addressView);
+        make.size.mas_equalTo(CGSizeMake(180, 40));
+    }];
+}
 - (void)setWeather{
     UIView *weather = [[UIView alloc] initWithFrame:CGRectMake(0,0, SCREEN_WIDTH / 4 + 5, SCREEN_WIDTH / 8 + 2)];
     weather.backgroundColor = COLOUR(255, 255, 255, 0.5);
@@ -188,15 +222,18 @@
 //        NSString *latitude = [NSString stringWithFormat:@"%f",self.latitude];
     
     
-    NSLog(@"llllll%@%@",self.longitude,self.latitude);
+    NSLog(@"llllll%f%f",self.longitude,self.latitude);
+    
+    NSString *lon =  [NSString stringWithFormat:@"%f",self.longitude];
+    NSString *lat = [NSString stringWithFormat:@"%f",self.latitude];
     if(dic ==nil){
         uid = @"";
     }
         // 3.设置请求体
         NSDictionary *json = @{
                                @"uid":uid,
-                               @"longitude":self.longitude,
-                               @"latitude":self.latitude,
+                               @"longitude":lon,
+                               @"latitude":lat,
                                };
     
         //    NSData --> NSDictionary
@@ -359,6 +396,8 @@
     annotation.coordinate = coor;
     [_mapView addAnnotation:annotation];
 
+    // 当前位置信息
+    [self outputAdd];
     
     
     NSString *longitude = [NSString stringWithFormat:@"%f",userLocation.location.coordinate.longitude];
@@ -374,12 +413,16 @@
     //NSLog(@"%@",_locationDic);
     NSLog(@"=============didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     
-    self.longitude = [NSString stringWithFormat:@"%f",userLocation.location.coordinate.longitude];
-    self.latitude = [NSString stringWithFormat:@"%f",userLocation.location.coordinate.latitude];
+    self.longitude = userLocation.location.coordinate.longitude;
+    self.latitude = userLocation.location.coordinate.latitude;
     
-    NSLog(@"xxxxxxxxxx%@,%@",self.longitude,self.latitude);
+    NSLog(@"xxxxxxxxxx%f,%f",self.longitude,self.latitude);
+   
     
-   // [self getMap];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)( 3600 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self getMap];
+    });
+   
     [_mapView updateLocationData:userLocation];
 }
 
@@ -450,23 +493,63 @@
 }
 
 
-#pragma mark -lazy
+//#pragma mark 获取地理位置按钮事件
+- (void)outputAdd
+{
+    // 初始化反地址编码选项（数据模型）
+    BMKReverseGeoCodeOption *option = [[BMKReverseGeoCodeOption alloc] init];
+    // 将数据传到反地址编码模型
+    option.reverseGeoPoint = CLLocationCoordinate2DMake(self.latitude, self.longitude);
+    NSLog(@"%f - %f", option.reverseGeoPoint.latitude, option.reverseGeoPoint.longitude);
+    // 调用反地址编码方法，让其在代理方法中输出
+    [self.geoCode reverseGeoCode:option];
+}
 
-
--(NSString *)longitude{
-    if (!_longitude) {
-        _longitude = [[NSString alloc]init];
+#pragma mark 代理方法返回反地理编码结果
+- (void)onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
+{
+    if (result) {
+        //        self.address.text = [NSString stringWithFormat:@"%@", result.address];
+        
+               NSLog(@"位置结果是：%@ - %@", result.address, result.addressDetail.city);
+               // NSLog(@"经纬度为：%@ 的位置结果是：%@", locationString, result.address);
+        self.currentCityString = result.address;
+        NSLog(@"打印：%@",self.currentCityString);
+        //[self.cityButton setTitle:self.currentCityString forState:UIControlStateNormal];
+        // 定位一次成功后就关闭定位
+        [_locService stopUserLocationService];
+        
+        [self addAddressView];
+        
+    }else{
+        NSLog(@"%@", @"找不到相对应的位置");
     }
     
-    return _longitude;
 }
 
-- (NSString *)latitude{
-    if (!_latitude) {
-        _latitude = [[NSString alloc]init];
+
+
+#pragma mark -lazy
+
+//- (NSString *)currentCityString{
+//    if (_currentCityString) {
+//        _currentCityString = [[NSString alloc]init];
+//    }
+//    return _currentCityString;
+//}
+
+#pragma mark geoCode的Get方法，实现延时加载
+- (BMKGeoCodeSearch *)geoCode
+{
+    if (!_geoCode)
+    {
+        _geoCode = [[BMKGeoCodeSearch alloc] init];
+        _geoCode.delegate = self;
     }
-    return _latitude;
+    return _geoCode;
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

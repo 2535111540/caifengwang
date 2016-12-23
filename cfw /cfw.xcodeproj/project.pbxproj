@@ -19,6 +19,7 @@
 		F221FD511E0BADE500915A46 /* PNFengQIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F221FD4A1E0BADE500915A46 /* PNFengQIViewController.m */; };
 		F221FD521E0BADE500915A46 /* PNFengQIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F221FD4B1E0BADE500915A46 /* PNFengQIViewController.xib */; };
 		F221FD531E0BADE500915A46 /* PNPerfectInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F221FD4D1E0BADE500915A46 /* PNPerfectInfoViewController.m */; };
+		F221FD571E0CD80E00915A46 /* AKSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F221FD561E0CD80E00915A46 /* AKSegmentedControl.m */; };
 		F229DFCD1D9657CE00AA8172 /* PNTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F229DFCC1D9657CE00AA8172 /* PNTabBarViewController.m */; };
 		F229DFFD1D966BF300AA8172 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F229DFED1D966BF300AA8172 /* UIView+Extension.m */; };
 		F229E0011D966C9C00AA8172 /* XLOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F229E0001D966C9C00AA8172 /* XLOtherViewController.m */; };
@@ -332,7 +333,6 @@
 		F28E80571DCAD3420004C41D /* XHMessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F28E80261DCAD3420004C41D /* XHMessageTextView.m */; };
 		F28E805A1DCAD3960004C41D /* ChatDemoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F28E80591DCAD3960004C41D /* ChatDemoHelper.m */; };
 		F28E80601DCAD4FA0004C41D /* AppDelegate+EaseMob.m in Sources */ = {isa = PBXBuildFile; fileRef = F28E805F1DCAD4FA0004C41D /* AppDelegate+EaseMob.m */; };
-		F296B1561DC192EC006385BD /* AKSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F296B1551DC192EC006385BD /* AKSegmentedControl.m */; };
 		F296B1681DC19653006385BD /* segmented-bg-pressed-center.png in Resources */ = {isa = PBXBuildFile; fileRef = F296B1581DC19653006385BD /* segmented-bg-pressed-center.png */; };
 		F296B1691DC19653006385BD /* segmented-bg-pressed-center@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F296B1591DC19653006385BD /* segmented-bg-pressed-center@2x.png */; };
 		F296B16A1DC19653006385BD /* segmented-bg-pressed-left.png in Resources */ = {isa = PBXBuildFile; fileRef = F296B15A1DC19653006385BD /* segmented-bg-pressed-left.png */; };
@@ -357,7 +357,6 @@
 		F296B1861DC1AE65006385BD /* item_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F296B1801DC1AE65006385BD /* item_share@2x.png */; };
 		F296B1871DC1AE65006385BD /* schoolListItem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F296B1811DC1AE65006385BD /* schoolListItem@2x.png */; };
 		F296B18A1DC1C9B5006385BD /* PNViewDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = F296B1891DC1C9B5006385BD /* PNViewDetailController.m */; };
-		F29E4E161DC8348C0077921D /* PNFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F29E4E151DC8348C0077921D /* PNFriendViewController.m */; };
 		F29E4E191DC834C50077921D /* PNMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F29E4E181DC834C50077921D /* PNMessageViewController.m */; };
 		F29E4E1C1DC866160077921D /* GroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F29E4E1B1DC866160077921D /* GroupModel.m */; };
 		F29E4E201DC866230077921D /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F29E4E1E1DC866230077921D /* FriendCell.m */; };
@@ -545,6 +544,8 @@
 		F221FD4B1E0BADE500915A46 /* PNFengQIViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PNFengQIViewController.xib; sourceTree = "<group>"; };
 		F221FD4C1E0BADE500915A46 /* PNPerfectInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNPerfectInfoViewController.h; sourceTree = "<group>"; };
 		F221FD4D1E0BADE500915A46 /* PNPerfectInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNPerfectInfoViewController.m; sourceTree = "<group>"; };
+		F221FD551E0CD80E00915A46 /* AKSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSegmentedControl.h; sourceTree = "<group>"; };
+		F221FD561E0CD80E00915A46 /* AKSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKSegmentedControl.m; sourceTree = "<group>"; };
 		F229DFCB1D9657CE00AA8172 /* PNTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNTabBarViewController.h; sourceTree = "<group>"; };
 		F229DFCC1D9657CE00AA8172 /* PNTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNTabBarViewController.m; sourceTree = "<group>"; };
 		F229DFEC1D966BF300AA8172 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -952,8 +953,6 @@
 		F28E80591DCAD3960004C41D /* ChatDemoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatDemoHelper.m; sourceTree = "<group>"; };
 		F28E805E1DCAD4FA0004C41D /* AppDelegate+EaseMob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+EaseMob.h"; sourceTree = "<group>"; };
 		F28E805F1DCAD4FA0004C41D /* AppDelegate+EaseMob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+EaseMob.m"; sourceTree = "<group>"; };
-		F296B1541DC192EC006385BD /* AKSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSegmentedControl.h; sourceTree = "<group>"; };
-		F296B1551DC192EC006385BD /* AKSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKSegmentedControl.m; sourceTree = "<group>"; };
 		F296B1581DC19653006385BD /* segmented-bg-pressed-center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "segmented-bg-pressed-center.png"; sourceTree = "<group>"; };
 		F296B1591DC19653006385BD /* segmented-bg-pressed-center@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "segmented-bg-pressed-center@2x.png"; sourceTree = "<group>"; };
 		F296B15A1DC19653006385BD /* segmented-bg-pressed-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "segmented-bg-pressed-left.png"; sourceTree = "<group>"; };
@@ -980,8 +979,6 @@
 		F296B1811DC1AE65006385BD /* schoolListItem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "schoolListItem@2x.png"; sourceTree = "<group>"; };
 		F296B1881DC1C9B5006385BD /* PNViewDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNViewDetailController.h; sourceTree = "<group>"; };
 		F296B1891DC1C9B5006385BD /* PNViewDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNViewDetailController.m; sourceTree = "<group>"; };
-		F29E4E141DC8348C0077921D /* PNFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNFriendViewController.h; sourceTree = "<group>"; };
-		F29E4E151DC8348C0077921D /* PNFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNFriendViewController.m; sourceTree = "<group>"; };
 		F29E4E171DC834C50077921D /* PNMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNMessageViewController.h; sourceTree = "<group>"; };
 		F29E4E181DC834C50077921D /* PNMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNMessageViewController.m; sourceTree = "<group>"; };
 		F29E4E1A1DC866160077921D /* GroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupModel.h; sourceTree = "<group>"; };
@@ -1434,6 +1431,15 @@
 				F221FD3B1E0BA5DA00915A46 /* UIView+Extension.m */,
 			);
 			path = pageView;
+			sourceTree = "<group>";
+		};
+		F221FD541E0CD80E00915A46 /* AKSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				F221FD551E0CD80E00915A46 /* AKSegmentedControl.h */,
+				F221FD561E0CD80E00915A46 /* AKSegmentedControl.m */,
+			);
+			path = AKSegmentedControl;
 			sourceTree = "<group>";
 		};
 		F229DFCE1D966BB000AA8172 /* Libs */ = {
@@ -1998,11 +2004,9 @@
 		F26A1E421DB9E337004877BA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F296B1531DC192EC006385BD /* AKSegmentedControl */,
+				F221FD541E0CD80E00915A46 /* AKSegmentedControl */,
 				F26A1E431DB9E337004877BA /* PNChatViewController.h */,
 				F26A1E441DB9E337004877BA /* PNChatViewController.m */,
-				F29E4E141DC8348C0077921D /* PNFriendViewController.h */,
-				F29E4E151DC8348C0077921D /* PNFriendViewController.m */,
 				F29E4E171DC834C50077921D /* PNMessageViewController.h */,
 				F29E4E181DC834C50077921D /* PNMessageViewController.m */,
 			);
@@ -2514,15 +2518,6 @@
 				F28E80241DCAD3420004C41D /* EMSearchDisplayController.m */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		F296B1531DC192EC006385BD /* AKSegmentedControl */ = {
-			isa = PBXGroup;
-			children = (
-				F296B1541DC192EC006385BD /* AKSegmentedControl.h */,
-				F296B1551DC192EC006385BD /* AKSegmentedControl.m */,
-			);
-			path = AKSegmentedControl;
 			sourceTree = "<group>";
 		};
 		F296B1571DC19653006385BD /* images */ = {
@@ -3701,7 +3696,6 @@
 				F2B4D1331DC72568004D4EEF /* EaseEmotionEscape.m in Sources */,
 				F2B4D1231DC72568004D4EEF /* PSTGridLayoutSection.m in Sources */,
 				F2B4D1291DC72568004D4EEF /* NSDate+Category.m in Sources */,
-				F296B1561DC192EC006385BD /* AKSegmentedControl.m in Sources */,
 				F28E80601DCAD4FA0004C41D /* AppDelegate+EaseMob.m in Sources */,
 				F2B4D0F51DC72567004D4EEF /* MJRefreshBackStateFooter.m in Sources */,
 				F28E80401DCAD3420004C41D /* ApplyFriendCell.m in Sources */,
@@ -3859,6 +3853,7 @@
 				F28E80551DCAD3420004C41D /* EMNavigationController.m in Sources */,
 				F2B4D10D1DC72568004D4EEF /* EMSDWebImagePrefetcher.m in Sources */,
 				F2B4D11C1DC72568004D4EEF /* PSTCollectionViewFlowLayout.m in Sources */,
+				F221FD571E0CD80E00915A46 /* AKSegmentedControl.m in Sources */,
 				F2B4D1191DC72568004D4EEF /* PSTCollectionViewCell.m in Sources */,
 				F25566DF1D9607B6000E8369 /* main.m in Sources */,
 				F26140171D99FFB800299AE9 /* PNMyTableViewController.m in Sources */,
@@ -3879,7 +3874,6 @@
 				F2B4D1091DC72567004D4EEF /* EMSDWebImageDecoder.m in Sources */,
 				F28E805A1DCAD3960004C41D /* ChatDemoHelper.m in Sources */,
 				F2B4D0DF1DC72567004D4EEF /* EMCDDeviceManager+Media.m in Sources */,
-				F29E4E161DC8348C0077921D /* PNFriendViewController.m in Sources */,
 				F230FE1C1DB869D9007F6DDA /* CBTextView.m in Sources */,
 				F2B4D1171DC72568004D4EEF /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
 				F29E4E191DC834C50077921D /* PNMessageViewController.m in Sources */,

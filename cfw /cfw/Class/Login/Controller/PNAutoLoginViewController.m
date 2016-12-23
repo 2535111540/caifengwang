@@ -9,7 +9,6 @@
 
 #import "PNAutoLoginViewController.h"
 //#import "PNiphoneNumber.h"
-#import "Masonry.h"
 #import "RegistrationVC.h"
 #import "MBProgressHUD.h"
 #import "PNMapViewController.h"
@@ -201,7 +200,11 @@
             
             if (result) {
                 
-                NSDictionary *resultDiction = [NSDictionary dictionaryWithObjectsAndKeys:@"1",@"loginState", nil];
+                NSString *name = [NSString stringWithFormat:@"%@",iPhoneNum.text];
+                NSLog(@"写入之前++++++++++++++++++%@",name);
+                
+                NSDictionary *resultDiction = [NSDictionary dictionaryWithObjectsAndKeys:@"1",@"loginState",name,@"name", nil];
+                
                 [[NSUserDefaults standardUserDefaults] setObject:resultDiction forKey:@"ResultAuthData"];
                 //保存数据，实现持久化存储
                 [[NSUserDefaults standardUserDefaults] synchronize];
