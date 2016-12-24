@@ -51,6 +51,9 @@
     //设定地图View能否支持用户多点缩放(双指)
     _mapView.zoomEnabled =YES;
     
+    // 设置定位的状态
+    _mapView.userTrackingMode = BMKUserTrackingModeNone;
+    
     //设置地图上是否显示比例尺
     _mapView.showMapScaleBar =YES;
     //设置地图比例尺在地图上的位置
@@ -197,15 +200,7 @@
     
 
     
-    // 取出name
-    
-    NSDictionary *dic = [[NSUserDefaults standardUserDefaults]objectForKey:@"ResultAuthData"];
-    
-    NSLog(@"hhhhhhh%@",dic);
-    
-    
-        // 取出uid
-        NSString *uid = [dic objectForKey:@"uid"];
+
 #warning 请输入上传位置信息的接口
 
         
@@ -226,10 +221,12 @@
     
     NSString *lon =  [NSString stringWithFormat:@"%f",self.longitude];
     NSString *lat = [NSString stringWithFormat:@"%f",self.latitude];
-    if(dic ==nil){
-        uid = @"";
-    }
-        // 3.设置请求体
+  
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] objectForKey:@"ResultAuthData"];
+    NSString *uid = [userDic objectForKey:@"uid"];
+    NSLog(@"uid++++++++++++++++++%@",uid);
+    
+    // 3.设置请求体
         NSDictionary *json = @{
                                @"uid":uid,
                                @"longitude":lon,
@@ -306,10 +303,12 @@
     [_mapView viewWillAppear];
     _mapView.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
      _locService.delegate = self;
+    _locService.distanceFilter = 500; //设置定位的最小更新距离，这里设置500米定位一次，频繁定位会耗费电量
+    _locService.desiredAccuracy = kCLLocationAccuracyHundredMeters;//设定定位精度
      [_locService startUserLocationService];
     NSLog(@"sssssss");
     _mapView.showsUserLocation = NO;//先关闭显示的定位图层
-    _mapView.userTrackingMode = BMKUserTrackingModeFollow;//设置定位的状态
+    _mapView.userTrackingMode = BMKUserTrackingModeNone;//设置定位的状态
     _mapView.showsUserLocation = YES;//显示定位图层
     NSLog(@"zzzzzzzz");
 
@@ -419,9 +418,8 @@
     NSLog(@"xxxxxxxxxx%f,%f",self.longitude,self.latitude);
    
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)( 3600 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self getMap];
-    });
+#pragma mark ---- 调用地图定位
+    [self getMap];
    
     [_mapView updateLocationData:userLocation];
 }

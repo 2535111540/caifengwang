@@ -183,7 +183,7 @@
         hud.removeFromSuperViewOnHide = YES;
         // 1秒之后再消失
         [hud hide:YES afterDelay:1.5];
-
+  // 18321933220
         
         NSString  *urlStringlogingo = [NSString stringWithFormat:@"%@%@",urlStringlogin,iPhoneNum.text];
         
@@ -195,15 +195,28 @@
             NSLog(@"result = %@",responseObject);
             
             NSLog(@"========%@",result);
+            
+//            NSData *response = [NSURLConnection sendSynchronousRequest:responseObject returningResponse:nil error:nil];
+            //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
+            NSDictionary *userDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+            
+            NSString *uid = [userDic objectForKey:@"uid"];
+            
+//            NSDictionary *weatherInfo = [weatherDic objectForKey:@"weatherinfo"];
+            
+//            NSLog(@"weatherDic===%@",weatherDic);
+            
+            // 把后台返回的user信息保存到NSUserDefaults
+            
+            
             // 发送网络请求，假如返回结果为 result = @"1";
             // NSString *result = @"1";
-            
             if (result) {
                 
                 NSString *name = [NSString stringWithFormat:@"%@",iPhoneNum.text];
                 NSLog(@"写入之前++++++++++++++++++%@",name);
                 
-                NSDictionary *resultDiction = [NSDictionary dictionaryWithObjectsAndKeys:@"1",@"loginState",name,@"name", nil];
+                NSDictionary *resultDiction = [NSDictionary dictionaryWithObjectsAndKeys:@"1",@"loginState",name,@"name",uid,@"uid" ,nil];
                 
                 [[NSUserDefaults standardUserDefaults] setObject:resultDiction forKey:@"ResultAuthData"];
                 //保存数据，实现持久化存储

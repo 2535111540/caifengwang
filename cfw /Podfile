@@ -9,5 +9,5 @@ pod 'AFNetworking'
 pod 'Masonry'
 pod 'BaiduMapKit' #百度地图SDK
 pod 'MBProgressHUD'
-pod 'YWFeedbackFMWK'#阿里百川SDK 
+pod 'YWFeedbackFMWK'#阿里百川SDK
 end
