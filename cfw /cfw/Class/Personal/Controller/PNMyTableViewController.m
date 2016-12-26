@@ -18,6 +18,7 @@
 #import "PNSetupShopViewController.h"
 #import "RegistrationVC.h"
 #import "PNQualityTestingViewController.h"
+#import "PNHelpViewController.h"
 @interface PNMyTableViewController ()
 {
     UIButton *SignOutBtn;
@@ -118,6 +119,9 @@
             else if (indexPath.row == 2)
             {
                 NSLog(@"点击了技术支持");
+                
+                PNHelpViewController *help = [[PNHelpViewController alloc]init];
+                [self.navigationController pushViewController:help animated:YES];
             }
             else if (indexPath.row == 3)
             {

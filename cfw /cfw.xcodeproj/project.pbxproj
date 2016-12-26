@@ -495,6 +495,7 @@
 		F2CA02E01E07B41F00FE96A9 /* LiuXSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CA02DB1E07B41F00FE96A9 /* LiuXSegmentView.m */; };
 		F2CA02E11E07B41F00FE96A9 /* LXSegmentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CA02DD1E07B41F00FE96A9 /* LXSegmentScrollView.m */; };
 		F2CA02F11E07DC2100FE96A9 /* noload.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2CA02F01E07DC2100FE96A9 /* noload.jpg */; };
+		F2D607FB1E10FA68000E7729 /* PNHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2D607FA1E10FA68000E7729 /* PNHelpViewController.m */; };
 		F2E5D2C51DB60F4B0002C23C /* fankui.png in Resources */ = {isa = PBXBuildFile; fileRef = F2E5D2C01DB60F4B0002C23C /* fankui.png */; };
 		F2E5D2C61DB60F4B0002C23C /* guanyu.png in Resources */ = {isa = PBXBuildFile; fileRef = F2E5D2C11DB60F4B0002C23C /* guanyu.png */; };
 		F2E5D2C71DB60F4B0002C23C /* jiaoyi.png in Resources */ = {isa = PBXBuildFile; fileRef = F2E5D2C21DB60F4B0002C23C /* jiaoyi.png */; };
@@ -1296,6 +1297,8 @@
 		F2CA02DC1E07B41F00FE96A9 /* LXSegmentScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSegmentScrollView.h; sourceTree = "<group>"; };
 		F2CA02DD1E07B41F00FE96A9 /* LXSegmentScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSegmentScrollView.m; sourceTree = "<group>"; };
 		F2CA02F01E07DC2100FE96A9 /* noload.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noload.jpg; sourceTree = "<group>"; };
+		F2D607F91E10FA68000E7729 /* PNHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNHelpViewController.h; sourceTree = "<group>"; };
+		F2D607FA1E10FA68000E7729 /* PNHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNHelpViewController.m; sourceTree = "<group>"; };
 		F2E5D2C01DB60F4B0002C23C /* fankui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fankui.png; sourceTree = "<group>"; };
 		F2E5D2C11DB60F4B0002C23C /* guanyu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guanyu.png; sourceTree = "<group>"; };
 		F2E5D2C21DB60F4B0002C23C /* jiaoyi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jiaoyi.png; sourceTree = "<group>"; };
@@ -2262,6 +2265,8 @@
 				F2CA02D21E07ABE900FE96A9 /* feedback1.jpg */,
 				F230FE201DB89715007F6DDA /* yw_1222.jpg */,
 				F2CA02CB1E077EED00FE96A9 /* call.jpg */,
+				F2D607F91E10FA68000E7729 /* PNHelpViewController.h */,
+				F2D607FA1E10FA68000E7729 /* PNHelpViewController.m */,
 				F23A631E1E0846B00093B80A /* PNQualityTestingViewController.h */,
 				F23A631F1E0846B00093B80A /* PNQualityTestingViewController.m */,
 				F23A63211E0848B20093B80A /* PNSetupShopViewController.h */,
@@ -3852,6 +3857,7 @@
 				F2B4D1261DC72568004D4EEF /* EaseConversationModel.m in Sources */,
 				F2B4D1131DC72568004D4EEF /* UIImage+EMWebP.m in Sources */,
 				F28E804D1DCAD3420004C41D /* EMSearchBar.m in Sources */,
+				F2D607FB1E10FA68000E7729 /* PNHelpViewController.m in Sources */,
 				F2B4D1101DC72568004D4EEF /* UIButton+EMWebCache.m in Sources */,
 				F2B4D1201DC72568004D4EEF /* PSTGridLayoutInfo.m in Sources */,
 				F2B4D0EB1DC72567004D4EEF /* MJRefreshAutoFooter.m in Sources */,

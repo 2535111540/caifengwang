@@ -1,20 +1,21 @@
 //
-//  PNQualityTestingViewController.m
-//  cfw
+//  PNHelpViewController.m
+//  
 //
-//  Created by majun on 16/12/19.
-//  Copyright © 2016年 马军. All rights reserved.
+//  Created by majun on 16/12/25.
+//
 //
 
-#import "PNQualityTestingViewController.h"
+#import "PNHelpViewController.h"
+
 #import "WebKit/WebKit.h"
 //#import "JWCacheURLProtocol.h"
 
 #import <SVProgressHUD.h>
 #define IOS8x ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0)
 #define WebViewNav_TintColor ([UIColor orangeColor])
-#define HomeUrl1    [NSURL URLWithString:@"http://192.168.0.156:8080/miningbee-web/checking1.jsp"]
-@interface PNQualityTestingViewController ()<WKNavigationDelegate,UIWebViewDelegate,WKUIDelegate>
+#define HomeUrl1    [NSURL URLWithString:@"http://bee.prismnetwork.cn/feedbeekno.jsp"]
+@interface PNHelpViewController ()<WKNavigationDelegate,UIWebViewDelegate,WKUIDelegate>
 @property (nonatomic,strong) WKWebView *WKwebView;
 @property (nonatomic,strong) UIWebView *webView;
 @property (nonatomic,strong) UIProgressView *progressView;
@@ -23,12 +24,12 @@
 
 
 
-@implementation PNQualityTestingViewController
+@implementation PNHelpViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self addTitleViewWithTitle:@"质检审核"];
+    [self addTitleViewWithTitle:@"技术支持"];
     // [self configUI];// 有进度条的
     [self WebUI]; // 没有进度条的
     [self NotPulldown]; // 禁止webview下拉
@@ -87,23 +88,9 @@
     
     self.view.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth;
     
-//       [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.tmall.com"]]];
+    //       [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.tmall.com"]]];
     
-
-    
-    
-    //  取出用户名name也就是手机号
-    NSDictionary *dic = [[NSUserDefaults standardUserDefaults]objectForKey:@"ResultAuthData"];
-    NSString *name = [dic objectForKey:@"name"];
-    //http://192.168.0.156:8080/miningbee-web/browser/getcheck?Phone=18321933220
-    //[self.WKwebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.0.156:8080/miningbee-web/browser/getcheck?Phone=%@",name]]]];
-     [self.WKwebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://bee.prismnetwork.cn/browser/getcheck?Phone=18321933220"]]]];
-    //
-    //    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    //    button.frame = CGRectMake(40, 22, 50, 50);
-    //    [button setImage:[UIImage imageNamed:@"login_close_icon@3x"] forState:UIControlStateNormal];
-    //    [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    //    [self.WKwebView addSubview:button];
+    [self.WKwebView loadRequest:[NSURLRequest requestWithURL:HomeUrl1]];
     
 }
 
@@ -228,30 +215,32 @@
 // 通过message可以拿到JS端所传的数据
 // 在iOS端显示原生alert得到YES/NO后
 // 通过completionHandler回调给JS端
-- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL result))completionHandler {
-    NSLog(@"%s", __FUNCTION__);
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"删除" message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        completionHandler(YES);
-    }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        completionHandler(NO);
-    }]];
-    [self presentViewController:alert animated:YES completion:NULL];
-    
-    NSLog(@"%@", message);
-}
 
-- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
-    NSLog(@"%s", __FUNCTION__);
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:message                 preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        completionHandler();
-    }]];
-    
-    [self presentViewController:alert animated:YES completion:NULL];
-    NSLog(@"%@", message);
-}
+
+//- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL result))completionHandler {
+//    NSLog(@"%s", __FUNCTION__);
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"删除" message:message preferredStyle:UIAlertControllerStyleAlert];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        completionHandler(YES);
+//    }]];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//        completionHandler(NO);
+//    }]];
+//    [self presentViewController:alert animated:YES completion:NULL];
+//    
+//    NSLog(@"%@", message);
+//}
+//
+//- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
+//    NSLog(@"%s", __FUNCTION__);
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:message                 preferredStyle:UIAlertControllerStyleAlert];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        completionHandler();
+//    }]];
+//    
+//    [self presentViewController:alert animated:YES completion:NULL];
+//    NSLog(@"%@", message);
+//}
 
 #pragma mark -- 设置webView背景图
 - (void)viewWillAppear:(BOOL)animated{

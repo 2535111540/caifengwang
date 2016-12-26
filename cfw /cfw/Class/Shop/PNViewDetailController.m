@@ -105,7 +105,8 @@
     //  取出用户名name也就是手机号
     NSDictionary *dic = [[NSUserDefaults standardUserDefaults]objectForKey:@"ResultAuthData"];
     NSString *name = [dic objectForKey:@"name"];
-    [self.WKwebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.caifengwang.cn/mobile/wapautologin/index.php?m=%@",name]]]];
+    
+     [self.WKwebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.caifengwang.cn/mobile/wapautologin/index.php?m=%@",name]]]];
     
     
 //    

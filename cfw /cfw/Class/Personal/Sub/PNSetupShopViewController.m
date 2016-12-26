@@ -89,7 +89,7 @@
     
     //    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.tmall.com"]]];
     
-    [self.WKwebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.0.156:8080/miningbee-web/toexamine.jsp"]]];
+    [self.WKwebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://bee.prismnetwork.cn/toexamine.jsp"]]];
     
     
     //
