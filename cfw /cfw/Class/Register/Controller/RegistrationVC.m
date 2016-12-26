@@ -224,7 +224,9 @@
 //    }];
     
     UITextField *textF = [self.view viewWithTag:100];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
     NSLog(@"错误所在 ！！");
     
     // 取出name
@@ -247,7 +249,7 @@
 
 #pragma mark 返回给后台一个json数据
 
-    NSString *urlString = @"http://192.168.0.169:8080/miningbee-web/ws/userStatus/status";
+    NSString *urlString = @"http://bee.prismnetwork.cn/ws/userStatus/status";
     urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url = [NSURL URLWithString:urlString];
          NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];

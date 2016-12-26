@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		353746DD6E5052BFB5EA092E /* libPods-cfw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC267FC216B45F1208097CD /* libPods-cfw.a */; };
+		F219880B1E0E751900260278 /* PNMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F21988081E0E751900260278 /* PNMapViewController.m */; };
 		F221FD3C1E0BA5DA00915A46 /* PageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F221FD351E0BA5DA00915A46 /* PageContentView.m */; };
 		F221FD3D1E0BA5DA00915A46 /* PageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = F221FD371E0BA5DA00915A46 /* PageTitleView.m */; };
 		F221FD3E1E0BA5DA00915A46 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F221FD391E0BA5DA00915A46 /* UIColor+Extension.m */; };
@@ -156,7 +157,6 @@
 		F25567031D9607B6000E8369 /* cfwUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F25567021D9607B6000E8369 /* cfwUITests.m */; };
 		F25567171D960ED2000E8369 /* PNBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F25567161D960ED2000E8369 /* PNBaseViewController.m */; };
 		F25567201D962247000E8369 /* PNShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F255671F1D962247000E8369 /* PNShopViewController.m */; };
-		F25567361D962764000E8369 /* PNMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F25567351D962764000E8369 /* PNMapViewController.m */; };
 		F25567991D962E63000E8369 /* bg_login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F255676D1D962E63000E8369 /* bg_login@2x.png */; };
 		F255679A1D962E63000E8369 /* bg_login@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F255676E1D962E63000E8369 /* bg_login@3x.png */; };
 		F255679B1D962E63000E8369 /* bj_chose.png in Resources */ = {isa = PBXBuildFile; fileRef = F255676F1D962E63000E8369 /* bj_chose.png */; };
@@ -523,6 +523,8 @@
 		60CD9F4BCB333625E40DC158 /* Pods-cfw.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cfw.release.xcconfig"; path = "Pods/Target Support Files/Pods-cfw/Pods-cfw.release.xcconfig"; sourceTree = "<group>"; };
 		6FB51A39BFD280A7D820DA89 /* Pods-cfw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cfw.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cfw/Pods-cfw.debug.xcconfig"; sourceTree = "<group>"; };
 		BDC267FC216B45F1208097CD /* libPods-cfw.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cfw.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F21988071E0E751900260278 /* PNMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNMapViewController.h; sourceTree = "<group>"; };
+		F21988081E0E751900260278 /* PNMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNMapViewController.m; sourceTree = "<group>"; };
 		F221FD341E0BA5DA00915A46 /* PageContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentView.h; sourceTree = "<group>"; };
 		F221FD351E0BA5DA00915A46 /* PageContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentView.m; sourceTree = "<group>"; };
 		F221FD361E0BA5DA00915A46 /* PageTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTitleView.h; sourceTree = "<group>"; };
@@ -702,8 +704,6 @@
 		F25567161D960ED2000E8369 /* PNBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNBaseViewController.m; sourceTree = "<group>"; };
 		F255671E1D962247000E8369 /* PNShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNShopViewController.h; sourceTree = "<group>"; };
 		F255671F1D962247000E8369 /* PNShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNShopViewController.m; sourceTree = "<group>"; };
-		F25567341D962764000E8369 /* PNMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNMapViewController.h; sourceTree = "<group>"; };
-		F25567351D962764000E8369 /* PNMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNMapViewController.m; sourceTree = "<group>"; };
 		F255676D1D962E63000E8369 /* bg_login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_login@2x.png"; sourceTree = "<group>"; };
 		F255676E1D962E63000E8369 /* bg_login@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_login@3x.png"; sourceTree = "<group>"; };
 		F255676F1D962E63000E8369 /* bj_chose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bj_chose.png; sourceTree = "<group>"; };
@@ -1391,6 +1391,29 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F21988061E0E751900260278 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F21988071E0E751900260278 /* PNMapViewController.h */,
+				F21988081E0E751900260278 /* PNMapViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F21988091E0E751900260278 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F219880A1E0E751900260278 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F221FD311E0BA54400915A46 /* SettingView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1799,8 +1822,9 @@
 		F25567111D960E84000E8369 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				F25567341D962764000E8369 /* PNMapViewController.h */,
-				F25567351D962764000E8369 /* PNMapViewController.m */,
+				F21988061E0E751900260278 /* Controller */,
+				F21988091E0E751900260278 /* Model */,
+				F219880A1E0E751900260278 /* View */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -3740,6 +3764,7 @@
 				F261401A1D99FFF200299AE9 /* PNMyHeadView.m in Sources */,
 				F2B4D1501DC72568004D4EEF /* EaseRecordView.m in Sources */,
 				F2B4D0F41DC72567004D4EEF /* MJRefreshBackNormalFooter.m in Sources */,
+				F219880B1E0E751900260278 /* PNMapViewController.m in Sources */,
 				F28E80541DCAD3420004C41D /* EMChooseViewController.m in Sources */,
 				F2B4D1281DC72568004D4EEF /* EaseUserModel.m in Sources */,
 				F2B4D1071DC72567004D4EEF /* EMSDImageCache.m in Sources */,
@@ -3840,7 +3865,6 @@
 				F28E803C1DCAD3420004C41D /* ContactListSelectViewController.m in Sources */,
 				F296B17B1DC1AE0B006385BD /* JHCustomMenu.m in Sources */,
 				F28E80521DCAD3420004C41D /* EMRemarkImageView.m in Sources */,
-				F25567361D962764000E8369 /* PNMapViewController.m in Sources */,
 				F2B4D1181DC72568004D4EEF /* PSTCollectionView.m in Sources */,
 				F2B4D13E1DC72568004D4EEF /* EaseCustomMessageCell.m in Sources */,
 				F2B4D1311DC72568004D4EEF /* EaseEmoji.m in Sources */,

@@ -89,8 +89,13 @@
     
 //       [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.tmall.com"]]];
     
-    [self.WKwebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.0.156:8080/miningbee-web/checking1.jsp"]]];
+
     
+    
+    //  取出用户名name也就是手机号
+    NSDictionary *dic = [[NSUserDefaults standardUserDefaults]objectForKey:@"ResultAuthData"];
+    NSString *name = [dic objectForKey:@"name"];
+    [self.WKwebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://bee.prismnetwork.cn/browser/getcheck?Phone=%@",name]]]];
     
     //
     //    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
