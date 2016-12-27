@@ -18,7 +18,7 @@
 #import "RegistrationVC.h"
 #import "PNChatViewController.h"
 #import "PNViewDetailController.h" // 商城
-@interface AppDelegate ()
+@interface AppDelegate ()<EMChatManagerDelegate>
 
 
 @end
@@ -51,6 +51,11 @@
     [self setUpTarBar];
     [self setUpBaiduMap];
     [self.window makeKeyAndVisible];
+    
+    
+    EMOptions *options = [EMOptions optionsWithAppkey:@"1194161226178223#caifengwang"];
+    [[EMClient sharedClient] initializeSDKWithOptions:options];
+    [[EMClient sharedClient].chatManager addDelegate:self delegateQueue:nil];
     return YES;
 }
 
@@ -163,6 +168,12 @@
         NSLog(@"manager start failed!");
     }
     
+}
+
+
+- (void)messagesDidReceive:(NSArray *)aMessages
+{
+    NSLog(@"124156");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

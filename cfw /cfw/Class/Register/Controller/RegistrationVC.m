@@ -179,6 +179,9 @@
                     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                     hud.mode = MBProgressHUDModeText;
                     
+                    //环信注册
+                    [[EMClient sharedClient] registerWithUsername:textF.text password:@"123456"];
+                    
                     NSLog(@"注册成功===");
                     [self registerSuccess];//注册成功后调用
                     

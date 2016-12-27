@@ -16,6 +16,8 @@
 #pragma mark HXUI
 #import "ContactListViewController.h" // 通讯录列表
 #import "ConversationListController.h" // 会话列表
+
+#import "AddFriendViewController.h"//添加好友
 @interface PNChatViewController () <AKSegmentedControlDelegate,JHCustomMenuDelegate>
 
 {
@@ -82,7 +84,8 @@
         
         NSLog(@"群聊");
     }else if (indexPath.row == 1){
-        NSLog(@"邀请好友");
+        AddFriendViewController *addFriends = [[AddFriendViewController alloc]init];
+        [self.navigationController pushViewController:addFriends animated:YES];
     }
 }
 

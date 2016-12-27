@@ -211,38 +211,83 @@
             
             // 发送网络请求，假如返回结果为 result = @"1";
             // NSString *result = @"1";
-            if (result) {
-                
-                NSString *name = [NSString stringWithFormat:@"%@",iPhoneNum.text];
-                NSLog(@"写入之前++++++++++++++++++%@",name);
-                
-                NSDictionary *resultDiction = [NSDictionary dictionaryWithObjectsAndKeys:@"1",@"loginState",name,@"name",uid,@"uid" ,nil];
-                
-                [[NSUserDefaults standardUserDefaults] setObject:resultDiction forKey:@"ResultAuthData"];
-                //保存数据，实现持久化存储
-                [[NSUserDefaults standardUserDefaults] synchronize];
-                
-                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                hud.mode = MBProgressHUDModeText;
-                hud.label.text = @"注册成功!";
-                hud.detailsLabel.text = @"正在为您登录...";
-                // 隐藏时候从父控件中移除
-                hud.removeFromSuperViewOnHide = YES;
-                // 1秒之后再消失
-                [hud hideAnimated:YES afterDelay:3.5];
-                
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    
-                    
-                    [UIView animateWithDuration:4.0 animations:^{
+            if (result)
+            {
+                //是否是自动登录
+                BOOL isAutoLogin = [EMClient sharedClient].options.isAutoLogin;
+                if (!isAutoLogin)
+                {
+                    EMError *error = [[EMClient sharedClient] loginWithUsername:iPhoneNum.text password:@"123456"];
+                    if (!error)
+                    {
+                        [[EMClient sharedClient].options setIsAutoLogin:YES];
+                        NSString *name = [NSString stringWithFormat:@"%@",iPhoneNum.text];
+                        //                NSLog(@"写入之前++++++++++++++++++%@",name);
                         
-                        [self dismissViewControllerAnimated:YES completion:^{
+                        NSDictionary *resultDiction = [NSDictionary dictionaryWithObjectsAndKeys:@"1",@"loginState",name,@"name",uid,@"uid" ,nil];
+                        
+                        [[NSUserDefaults standardUserDefaults] setObject:resultDiction forKey:@"ResultAuthData"];
+                        //保存数据，实现持久化存储
+                        [[NSUserDefaults standardUserDefaults] synchronize];
+                        
+                        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                        hud.mode = MBProgressHUDModeText;
+                        hud.label.text = @"注册成功!";
+                        hud.detailsLabel.text = @"正在为您登录...";
+                        // 隐藏时候从父控件中移除
+                        hud.removeFromSuperViewOnHide = YES;
+                        // 1秒之后再消失
+                        [hud hideAnimated:YES afterDelay:3.5];
+                        
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                             
-                        }];
-                        NSLog(@"这里直接跳转到首页");
-                    }];
+                            
+                            [UIView animateWithDuration:4.0 animations:^{
+                                
+                                [self dismissViewControllerAnimated:YES completion:^{
+                                    
+                                }];
+                                NSLog(@"这里直接跳转到首页");
+                            }];
+                            
+                        });
+                    }
+                }
+                else
+                {
+                    NSString *name = [NSString stringWithFormat:@"%@",iPhoneNum.text];
+                    //                NSLog(@"写入之前++++++++++++++++++%@",name);
                     
-                });
+                    NSDictionary *resultDiction = [NSDictionary dictionaryWithObjectsAndKeys:@"1",@"loginState",name,@"name",uid,@"uid" ,nil];
+                    
+                    [[NSUserDefaults standardUserDefaults] setObject:resultDiction forKey:@"ResultAuthData"];
+                    //保存数据，实现持久化存储
+                    [[NSUserDefaults standardUserDefaults] synchronize];
+                    
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    hud.mode = MBProgressHUDModeText;
+                    hud.label.text = @"注册成功!";
+                    hud.detailsLabel.text = @"正在为您登录...";
+                    // 隐藏时候从父控件中移除
+                    hud.removeFromSuperViewOnHide = YES;
+                    // 1秒之后再消失
+                    [hud hideAnimated:YES afterDelay:3.5];
+                    
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        
+                        
+                        [UIView animateWithDuration:4.0 animations:^{
+                            
+                            [self dismissViewControllerAnimated:YES completion:^{
+                                
+                            }];
+                            NSLog(@"这里直接跳转到首页");
+                        }];
+                        
+                    });
+ 
+                }
+                
                 
             }else{
                 
